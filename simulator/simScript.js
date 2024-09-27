@@ -3,9 +3,9 @@ const quizData = [
       age_group: "20대",
       question: "친구가 돈을 값지 않는다, 어떻게 돌려받을까?",
       options: [
-        { text: "친구? 난 믿지 않으므로 납부일을 정한다.", score: 1 },
-        { text: "최대한 늦게 돌려받아 올라갈 환율을 노린다.", score: 2 },
-        { text: "친구의 돈을 받기 위해 뒷통수를 노린다.", score: 3 },
+        { text: "친구? 난 믿지 않으므로 납부일을 정한다.", score: 2 },
+        { text: "최대한 늦게 돌려받아 올라갈 환율을 노린다.", score: 3 },
+        { text: "친구의 돈을 받기 위해 뒷통수를 노린다.", score: 1 },
       ],
       economic_terms: ["납부일", "환율"],
     },
@@ -14,9 +14,9 @@ const quizData = [
       question: "내 첫 아르바이트를 했는데 손해를 본것 같다</br>뭐 때문이지..?",
       options: [
         { text: "시간당 임금을", score: 1 },
-        { text: "아르바이트 기간 검토 했다.", score: 2 },
+        { text: "아르바이트 기간 검토 했다.", score: 4 },
         { text: "4대 보험이 보장되어있는지 확인했다.", score: 3 },
-        { text: "일하게 될 곳의 분위기가 어떤지 살폈다.", score: 4 },
+        { text: "일하게 될 곳의 분위기가 어떤지 살폈다.", score: 2 },
       ],
       economic_terms: ["임금", "보험"],
     },
@@ -24,9 +24,9 @@ const quizData = [
       age_group: "30대",
       question: "이젠 결혼을 앞두고 있는데… 집을 사기위한 혜택중 무엇을 골라야 할까?",
       options: [
-        { text: "청년 안심 주택", score: 1 },
-        { text: "혼인 양도세 공제", score: 2 },
-        { text: "디딤돌 대출", score: 3 },
+        { text: "청년 안심 주택", score: 2 },
+        { text: "혼인 양도세 공제", score: 3 },
+        { text: "디딤돌 대출", score: 1 },
       ],
       economic_terms: ["주택", "양도세", "공제", "대출"],
     },
@@ -51,10 +51,10 @@ const quizData = [
     },
     {
       age_group: "50대",
-      question: "노후 준비 해야할 나 지금껏 안했는데 어떡하지???",
+      question: "노후 준비 해야할때인데 뭐부터 해야할까?",
       options: [
-        { text: "국민 연금 드가자!!!", score: 1 },
-        { text: "새로운 일들을 해보고 싶어… 다른 일자리를 찾으러 떠나기", score: 2 },
+        { text: "국민 연금 을 가입한다", score: 1 },
+        { text: "새로운 일들을 해보고 싶어… 다른 일자리를 찾으러 떠난다", score: 2 },
         { text: "귀촌을 해 장려금 1200만원을 받는다.", score: 3 },
       ],
       economic_terms: ["연금", "장려금"],
@@ -100,8 +100,6 @@ const quizData = [
       const totalQuestions = quizData.length;
       const percentageScore = (correctAnswers / totalQuestions) * 100;
       localStorage.setItem("percentageScore", percentageScore.toFixed(2));
-  
-      explanationContainer.innerHTML += `<br>설문이 끝났습니다! 총 점수: ${percentageScore}점`;
       localStorage.setItem("quizScore", percentageScore);
   
       const endTime = new Date();
@@ -110,7 +108,7 @@ const quizData = [
   
       setTimeout(() => {
         window.location.href = "theEnd.html";
-      }, 2000);
+      }, 100);
     }
   }
   
