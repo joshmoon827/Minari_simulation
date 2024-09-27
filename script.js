@@ -9,20 +9,3 @@ document.addEventListener("DOMContentLoaded", () => {
         marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
     }
 });
-
-const score = document.querySelector(".score");
-      let currentScore = 0;
-      const targetScore = 85;
-      const duration = 2000;
-      const interval = 20;
-      const steps = duration / interval;
-      const increment = targetScore / steps;
-
-      const timer = setInterval(() => {
-        currentScore += increment;
-        if (currentScore >= targetScore) {
-          clearInterval(timer);
-          currentScore = targetScore;
-        }
-        score.textContent = Math.round(currentScore) + "점";
-      }, interval);
