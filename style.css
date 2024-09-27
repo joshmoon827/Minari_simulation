@@ -10,7 +10,7 @@ body {
   background-color: #eee;
   color: #111;
   background-color: #111;
-  
+  overflow: hidden;
 }
 :root {
   --marquee-width: 200vw;
