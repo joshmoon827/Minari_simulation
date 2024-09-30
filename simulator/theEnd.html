@@ -300,49 +300,7 @@
       )}%`; // 정답률 업데이트 (소수점 없이 정수로)
       durationElement.textContent = `${quizDuration}초`; // 소요 시간 업데이트
     </script>
-
-    <div id="shareModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeShareModal()">&times;</span>
-        <h2>결과 공유하기</h2>
-        <a id="kakaotalk-sharing-btn" href="javascript:shareMessage()">
-          <img
-            src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-            alt="카카오톡 공유 보내기 버튼"
-          />
-        </a>
-        <div class="share-options">
-          <button class="share-option" onclick="shareKakao()">카카오톡</button>
-          <button class="share-option" onclick="shareInstagram()">
-            인스타그램
-          </button>
-          <button class="share-option" onclick="copyLink()">링크 복사</button>
-        </div>
-      </div>
-    </div>
-
     <script src="shareModal.js"></script>
-    <script
-      src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
-      integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      Kakao.init("8c945e2c91e24b3713ac57cab13e5a6d"); // 사용하려는 앱의 JavaScript 키 입력
-    </script>
-
-    <script>
-      function shareMessage() {
-        Kakao.Share.sendCustom({
-          templateId: 112521,
-          templateArgs: {
-            title: "라이언이 즐겨먹던 바로 그 틴케이스 치즈볼",
-            description:
-              "바라만 봐도 즐거워지는 힐링 패키지에는 시크릿 스토리가 숨어있어요.",
-          },
-        });
-      }
-    </script>
     <script src="simScript.js"></script>
   </body>
 </html>
