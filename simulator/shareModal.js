@@ -17,9 +17,9 @@ function shareInstagram() {
 }
 
 function copyLink() {
-  const dummyLink = "https://example.com/quiz-result";
+  const webLink = "bit.ly/Minari_cheongpodo_sim";
   navigator.clipboard
-    .writeText(dummyLink)
+    .writeText(webLink)
     .then(() => {
       alert("링크가 클립보드에 복사되었습니다.");
     })
