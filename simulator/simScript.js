@@ -126,7 +126,7 @@ function checkAnswer(score, isCorrect) {
     //수정
     setTimeout(() => {
       window.location.href = "theEnd.html";
-    }, 2000);
+    }, 500);
   }
 }
 
