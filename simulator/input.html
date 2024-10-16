@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경제 테스트 응시</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: 0 15px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>닉네임을 입력해주세요</h1>
+        <input type="text" id="name-input" placeholder="닉네임">
+        <button id="submit-btn" onclick="location.href='sim.html'">응시하기</button>
+    </div>
+
+    <script>
+        document.getElementById("submit-btn").addEventListener("click", function () {
+            const name = document.getElementById("name-input").value;
+
+            if (name === "") {
+                alert("닉네임을 입력해주세요.");
+                return;
+            }
+
+            const webhookUrl = 'https://discord.com/api/webhooks/1295894245684805683/Tml3v0FwRGC3lfFXgFwuTmlLki0QvHX60sdRR14qJXRkabB6S3kFcB-_C1HhLz6CBjWL';
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: null,
+                    embeds: [
+                        {
+                            title: "경제 테스트 응시 시작 알림",
+                            description: `응시자 : ${name}\n`,
+                            color: 5763719,
+                            timestamp: new Date().toISOString(),
+                        },
+                    ],
+                }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Webhook sent successfully');
+                } else {
+                    console.error('Error sending webhook');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
