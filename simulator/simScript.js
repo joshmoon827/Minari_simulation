@@ -1,13 +1,13 @@
 const quizData = [
     {
       age_group: "20대",
-      question: "다음중 최고의 학교는?",
+      question: "다음중 최고의 학교는? ( 점수 안들어감 )",
       options: [
         { text: "**대구소프트웨어마이스터고등학교**", score: 1 },
         { text: "광주소프트웨어마이스터고등학교", score: 1 },
         { text: "부산소프트웨어마이스터고등학교", score: 1 },
       ],
-      economic_terms: ["납부일", "환율"],
+      economic_terms: [],
     },
     {
       age_group: "20대",
