@@ -37,7 +37,7 @@ const quizData = [
         { text: "원화값 상승", score: 4 },
         { text: "원달러 환율 상승", score: 1 },
         { text: "달러가치 상승", score: 2 },
-        { text: "수출기업에 긍정적 영향", score: 3 },
+        { text: "수출기업에 긍정적 영향", score: 1 },
       ],
       economic_terms: ["아동 수당"],
     },
@@ -47,16 +47,47 @@ const quizData = [
       options: [
         { text: "연 3.0%", score: 1 },
         { text: "연 3.5%", score: 3 },
-        { text: "연 4.0%", score: 2 },
+        { text: "연 4.0%", score: 1 },
       ],
     },
     {
       age_group: "50대",
       question: "점포를 거래할 때 기존 점주가 쌓은 영업 노하우와 단골 등을 이어받는 명목으로 지급하는 돈은?",
       options: [
-        { text: "권리금", score: 2 },
+        { text: "권리금", score: 1 },
         { text: "중도금", score: 3 },
-        { text: "『모른다』", score: 1 },
+        { text: "『모른다』", score: 0 },
+      ],
+      economic_terms: ["연금"],
+    },
+    {
+      age_group: "50대",
+      question: "강력한 경쟁자가 등장했을 때 기존 기업들의 경쟁력이 오히려 강해지는 현상을 가리키는 용어는?",
+      options: [
+        { text: "풍선효과", score: 1 },
+        { text: "기저효과", score: 1 },
+        { text: "메기효과", score: 3 },
+      ],
+      economic_terms: ["연금"],
+    },
+    {
+      age_group: "50대",
+      question: "어떤 산업이 장기 호황을 맞거나 어떤 자산 가격이 대세 상승장을 맞았을 때 쓰는 표현은?",
+      options: [
+        { text: "퍼펙트 스톰", score: 1 },
+        { text: "캐리트레이드", score: 1 },
+        { text: "승자의 저주", score: 1 },
+        { text: "슈퍼 사이클", score: 2 },
+      ],
+      economic_terms: ["연금"],
+    },
+    {
+      age_group: "50대",
+      question: "청소년만 선택 :: 경제를 배우 싶은 의향이 있나요? ( 점수 안들어감 )",
+      options: [
+        { text: "있다", score: 0, result: 1 },
+        { text: "없다", score: 0,result: 0 },
+        { text: "(청소년이 아닙니다)", score: 1 },
       ],
       economic_terms: ["연금"],
     },
@@ -87,19 +118,25 @@ function loadQuestion(index) {
     const button = document.createElement("button");
     button.classList.add("button");
     button.innerHTML = option.text;
-    // 첫 번째 옵션을 정답으로 가정 (필요에 따라 수정)
 
     button.addEventListener("click", () =>
-      checkAnswer(option.score, maxScore == option.score)
+      checkAnswer(option.score, maxScore == option.score, option.result)
     );
     optionsContainer.appendChild(button);
   });
 }
 
+
 // 정답 확인 함수
-function checkAnswer(score, isCorrect) {
+function checkAnswer(score, isCorrect, result = null) {
   totalScore += score;
   if (isCorrect) correctAnswers++;
+
+  // result 값이 있는 경우 저장 (1은 'O', 0은 'X'로 저장)
+  if (result !== null) {
+    const resultString = result === 1 ? "O" : "X";
+    localStorage.setItem("quizResult", resultString);
+  }
 
   currentQuestionIndex++;
   if (currentQuestionIndex < quizData.length) {
@@ -123,12 +160,13 @@ function checkAnswer(score, isCorrect) {
     const endTime = new Date();
     const durationInSeconds = ((endTime - startTime) / 1000).toFixed(2); // 소수점 둘째 자리까지
     localStorage.setItem("quizDuration", durationInSeconds);
-    //수정
+
     setTimeout(() => {
       window.location.href = "theEnd.html";
     }, 500);
   }
 }
+
 
 // 페이지 로드 시 실행되는 함수
 window.onload = function () {
