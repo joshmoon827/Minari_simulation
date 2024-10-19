@@ -57,9 +57,22 @@
       Kakao.init("5aa703ff5ee2372694ac3eaa4f655320"); // 사용하려는 앱의 JavaScript 키 입력
     </script>
     <script>
+      const RealScore = localStorage.getItem("percentageScore"); // 소수점 값
+      const Duration = localStorage.getItem("quizDuration"); // 소수점 값
+      const Result = localStorage.getItem("quizResult"); // 문자 값 (O or X)
+      const Score = localStorage.getItem("quizScore"); // 소수점 값
+      const Name = localStorage.getItem("nickname"); // 문자 값
       function shareMessage() {
         Kakao.Share.sendCustom({
-          templateId: 112521
+          templateId: 112521,
+          templateArgs: {
+            title: "경제 상식 퀴즈 결과",
+            description: `${Name}님의 퀴즈 결과.\n\n
+            **정확률**: ${RealScore}\n
+            **퀴즈 시간**: ${Duration}초 \n
+            **퀴즈 점수**: ${Score}점\n
+          `,
+          },
         });
       }
     </script>
@@ -76,11 +89,11 @@
         margin-top: 13px;
       }
       .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
       }
       .score {
         font-size: clamp(2rem, 10vw, 4rem);
