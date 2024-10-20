@@ -24,9 +24,9 @@ const quizData = [
       age_group: "30대",
       question: "이젠 결혼을 앞두고 있는데… 집을 사기위한 혜택중 무엇을 골라야 할까?",
       options: [
-        { text: "청년 안심 주택", score: 2 },
+        { text: "청년 안심 자택", score: 2 },
         { text: "혼인 양도세 공제", score: 3 },
-        { text: "디딤돌 대출", score: 1 },
+        { text: "디딤다리 대출", score: 1 },
       ],
       economic_terms: ["주택", "양도세", "공제", "대출"],
     },
@@ -77,13 +77,13 @@ const quizData = [
         { text: "퍼펙트 스톰", score: 1 },
         { text: "캐리트레이드", score: 1 },
         { text: "승자의 저주", score: 1 },
-        { text: "슈퍼 사이클", score: 2 },
+        { text: "슈퍼 사이클", score: 3 },
       ],
       economic_terms: ["연금"],
     },
     {
       age_group: "50대",
-      question: "청소년만 선택 :: 경제를 배우 싶은 의향이 있나요? ( 점수 안들어감 )",
+      question: "청소년만 선택 :: 경제를 배우고 싶은 의향이 있나요? <br/> ( 점수 안들어감 )",
       options: [
         { text: "있다", score: 0, result: 1 },
         { text: "없다", score: 0,result: 0 },
