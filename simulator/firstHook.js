@@ -32,15 +32,12 @@ document.getElementById("submit-btn").addEventListener("click", function () {
         console.log('Response status:', response.status); // 응답 상태 로그 추가
         if (response.ok) {
             console.log('Webhook sent successfully');
-            alert("응시 시작 알림이 전송되었습니다."); // 성공 시 알림 추가
             location.href = 'sim.html'; // 성공 시 페이지 이동
         } else {
             console.error('Error sending webhook:', response.statusText);
-            alert("웹훅 전송 중 오류가 발생했습니다.");
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert("웹훅 전송 중 오류가 발생했습니다.");
     });
 });

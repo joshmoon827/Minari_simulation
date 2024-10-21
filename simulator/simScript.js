@@ -45,9 +45,9 @@ const quizData = [
       age_group: "50대",
       question: "5/9<br/><br/>현재 한국은행 기준금리는 얼마일까?",
       options: [
-        { text: "연 3.0%", score: 1 },
-        { text: "연 3.5%", score: 3 },
-        { text: "연 4.0%", score: 1 },
+        { text: "연 3.25%", score: 3 },
+        { text: "연 3.47%", score: 1 },
+        { text: "연 4.1%", score: 1 },
       ],
     },
     {
